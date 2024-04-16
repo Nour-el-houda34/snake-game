@@ -1,0 +1,52 @@
+# Project: jeu_serpent
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o StateMan.o Snake.o PauseGame.o MainMenu.o GamePlay.o GameOver.o Game.o AssetMan.o
+LINKOBJ  = main.o StateMan.o Snake.o PauseGame.o MainMenu.o GamePlay.o GameOver.o Game.o AssetMan.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"C:/Users/ADM/Desktop/SFML-2.4.2/lib" -mwindows -lsfml-audio  -lsfml-graphics  -lsfml-system  -lsfml-window -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/ADM/Desktop/SFML-2.4.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/Users/ADM/Desktop/SFML-2.4.2/include"
+BIN      = jeu_serpent.exe
+CXXFLAGS = $(CXXINCS) -g3 -std=c++11 -std=c++14
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+StateMan.o: StateMan.cpp
+	$(CPP) -c StateMan.cpp -o StateMan.o $(CXXFLAGS)
+
+Snake.o: Snake.cpp
+	$(CPP) -c Snake.cpp -o Snake.o $(CXXFLAGS)
+
+PauseGame.o: PauseGame.cpp
+	$(CPP) -c PauseGame.cpp -o PauseGame.o $(CXXFLAGS)
+
+MainMenu.o: MainMenu.cpp
+	$(CPP) -c MainMenu.cpp -o MainMenu.o $(CXXFLAGS)
+
+GamePlay.o: GamePlay.cpp
+	$(CPP) -c GamePlay.cpp -o GamePlay.o $(CXXFLAGS)
+
+GameOver.o: GameOver.cpp
+	$(CPP) -c GameOver.cpp -o GameOver.o $(CXXFLAGS)
+
+Game.o: Game.cpp
+	$(CPP) -c Game.cpp -o Game.o $(CXXFLAGS)
+
+AssetMan.o: AssetMan.cpp
+	$(CPP) -c AssetMan.cpp -o AssetMan.o $(CXXFLAGS)
